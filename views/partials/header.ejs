@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <title><%= title %></title>
+  <!-- Bootstrap for css -->
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+  <!-- Using bootstrap Slate theme as a starter point -->
+  <link rel="stylesheet" href="/stylesheets/slate-bootstrap.min.css" />
+  <!-- Primary site stylesheet file -->
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#vendre_nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Vendre</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="vendre_nav">
+      <ul class="nav navbar-nav">
+        <li><a href="/products">Products</a></li>
+      <% if (!user) { %>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+        </ul>
+      <% } else { %>
+      <li><a href="/products/myproducts">My Products</a></li>
+      </ul>
+      <div class="navbar-text pull-right">
+        <%= user.username %>
+      </div>
+      <% } %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+<div class="container">
