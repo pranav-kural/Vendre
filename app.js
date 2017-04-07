@@ -12,6 +12,8 @@ let localStrategy = require('passport-local').Strategy;
 
 // Index routes
 var index = require('./controllers/index');
+// reference the products controller
+var products = require('./controllers/products');
 
 var app = express();
 
