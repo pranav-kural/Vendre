@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Arsenal|Lato|Montserrat|Raleway');
+
+body {
+  font-family: 'Lato', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', sans-serif !important;
+}
+
+nav.navbar {
+  font-family: 'Arsenal', sans-serif;
+    font-size: 1.5rem;
+    min-height: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #c85e17;
+}
+
+
+
+/* -- Slide in border-bottom from right to left */
+.nav.navbar-nav li a::after {
+  content: "";
+  text-decoration: none;
+  display: flex;
+  border-bottom: 0.1em solid transparent;
+  width: 0px;
+  transition: 0.5s ease;
+  white-space: nowrap;
+  height: 0.2em;
+
+}
+.nav.navbar-nav li a:hover::after {
+  border-bottom: 0.1em solid #2B3E50;
+  width: 100%;
+}
+
+.btn {
+  border-radius: 3px;
+  margin-bottom: 2px;
+}
+
+a.navbar-brand.pipe-separator::after {
+  content: '|' !important;
+}
+
+a.navbar-brand.pipe-separator:hover::after {
+  content: '|' !important;
+}
+
+a.navbar-brand.pipe-separator:hover {
+  content: '|' !important;
+  cursor: pointer;
+}
+
+#homeDescription {
+  font-size: 15px !important;
+}
