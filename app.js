@@ -10,6 +10,13 @@ var index = require('./controllers/index');
 
 var app = express();
 
+// use mongoose to connect to mongodb
+var mongoose = require('mongoose');
+// link to config file
+var globals = require('./config/globals');
+// Connect to MLab
+mongoose.connect(globals.db);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
