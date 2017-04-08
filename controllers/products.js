@@ -50,7 +50,7 @@ router.get('/myproducts', function(req, res, next) {
         }
 
         res.render('products/myProducts', {
-            products: products.filter((product) => { return product.seller == req.user._id; }),
+            products: products.filter((product) => { return product.seller == req.user._id; }), // send back products related to user making request
             title: 'Product Details',
             user: req.user
         });

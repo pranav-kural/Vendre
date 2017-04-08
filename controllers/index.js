@@ -1,11 +1,13 @@
-var express = require('express');
-var router = express.Router();
+// Controller for App Root
+
+// Require Express Router
+var router = require('express').Router();
 
 // add passport for reg and login
 let passport = require('passport');
 let Account = require('../models/account');
 
-/* GET home page. */
+/* GET home page */
 router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Welcome to Vendre',
@@ -63,10 +65,12 @@ router.get('/logout', function(req, res, next) {
   res.redirect('/');
 });
 
+/* Redirect to facebook for authentication */
 router.get('/facebook',
   passport.authenticate('facebook', { scope: 'email' })
 );
  
+ /* Facebook authentication callback handler */
 router.get('/facebook/callback',
   passport.authenticate('facebook', { scope: 'email', failureRedirect: '/login' }),
   function(req, res) {
@@ -74,12 +78,14 @@ router.get('/facebook/callback',
     res.redirect('/products');
 });
 
+/* Redirect to google+ for authentication */
 router.get('/google',
   passport.authenticate('google', { scope: 
   	[ 'https://www.googleapis.com/auth/plus.login',
   	, 'https://www.googleapis.com/auth/plus.profile.emails.read' ] }
 ));
  
+/* Google authentication callback handler */
 router.get( '/google/callback', 
     passport.authenticate( 'google', { 
         successRedirect: '/products',
